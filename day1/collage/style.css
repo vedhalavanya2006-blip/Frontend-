@@ -1,0 +1,131 @@
+/* Page Styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8fc;
+    color: #333;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Main Heading */
+h1 {
+    text-align: center;
+    color: #0d47a1;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Section Headings */
+h2 {
+    color: #1565c0;
+    border-bottom: 2px solid #1565c0;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* Image */
+img {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #1565c0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Horizontal Line */
+hr {
+    border: 1px solid #1565c0;
+    margin: 20px 0;
+}
+
+/* Paragraph */
+p {
+    text-align: justify;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* List */
+ul {
+    margin-left: 30px;
+    font-size: 17px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 2px solid #1565c0;
+}
+
+th {
+    background-color: #1565c0;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f7ff;
+}
+
+tr:hover {
+    background-color: #d6eaff;
+}
+
+/* Link */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    background-color: #1565c0;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: #0d47a1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}

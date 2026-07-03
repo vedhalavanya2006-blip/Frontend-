@@ -1,0 +1,123 @@
+/* General Page */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7fc;
+    margin: 40px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Resume Container */
+body {
+    max-width: 850px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 5px;
+    font-size: 36px;
+}
+
+h2 {
+    color: #1565c0;
+    border-bottom: 2px solid #1565c0;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+h3 {
+    text-align: center;
+    color: #555;
+    font-weight: normal;
+}
+
+/* Horizontal Line */
+hr {
+    border: 1px solid #1565c0;
+    margin: 20px 0;
+}
+
+/* Paragraph */
+p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+/* Lists */
+ol,
+ul {
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table,
+th,
+td {
+    border: 2px solid #1565c0;
+}
+
+th {
+    background-color: #1565c0;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #dbeafe;
+}
+
+/* Link */
+a {
+    text-decoration: none;
+    color: #0d47a1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #e91e63;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
