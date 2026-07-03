@@ -1,0 +1,99 @@
+/* ===========================
+   Calculator CSS
+=========================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    /* Background Image */
+    background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Calculator Box */
+.calculator {
+    width: 340px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(25, 35, 65, 0.90);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+}
+
+/* Display */
+#display {
+    width: 100%;
+    height: 65px;
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #333;
+    font-size: 28px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Button Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Buttons */
+button {
+    height: 60px;
+    font-size: 22px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Number Buttons */
+button:nth-child(n+5) {
+    background: #3498db;
+}
+
+/* Operator Buttons */
+button:nth-child(2),
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12) {
+    background: #f39c12;
+}
+
+/* Clear Button */
+button:first-child {
+    background: #e74c3c;
+}
+
+/* Equal Button */
+button:nth-child(16) {
+    background: #2ecc71;
+}
+
+/* Hover Effect */
+button:hover {
+    transform: scale(1.08);
+    opacity: 0.9;
+}
+
+/* Zero Button */
+.zero {
+    grid-column: span 2;
+}

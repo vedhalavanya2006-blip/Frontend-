@@ -1,0 +1,78 @@
+/* Full Page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+div {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 320px;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 28px;
+}
+
+/* Counter Number */
+span {
+    display: inline-block;
+    font-size: 50px;
+    font-weight: bold;
+    color: #2193b0;
+    margin: 20px 0;
+}
+
+/* Buttons */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Increase Button */
+button:nth-of-type(1) {
+    background: #28a745;
+}
+
+button:nth-of-type(1):hover {
+    background: #218838;
+}
+
+/* Decrease Button */
+button:nth-of-type(2) {
+    background: #dc3545;
+}
+
+button:nth-of-type(2):hover {
+    background: #c82333;
+}
+
+/* Reset Button */
+button:nth-of-type(3) {
+    background: #007bff;
+}
+
+button:nth-of-type(3):hover {
+    background: #0056b3;
+}
