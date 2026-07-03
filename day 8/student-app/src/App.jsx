@@ -7,8 +7,6 @@ function App() {
   const [student, setStudent] = useState({
     name: "",
     id: "",
-    phone: "",
-    email: "",
     department: "",
     section: "",
     status: "Absent",
@@ -29,8 +27,6 @@ function App() {
     if (
       student.name === "" ||
       student.id === "" ||
-      student.phone === "" ||
-      student.email === "" ||
       student.department === "" ||
       student.section === ""
     ) {
@@ -43,8 +39,6 @@ function App() {
     setStudent({
       name: "",
       id: "",
-      phone: "",
-      email: "",
       department: "",
       section: "",
       status: "Absent",
@@ -115,22 +109,7 @@ function App() {
             name="id"
             value={student.id}
             onChange={handleChange}
-          />
 
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            name="phone"
-            value={student.phone}
-            onChange={handleChange}
-          />
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={student.email}
-            onChange={handleChange}
           />
 
           <select
@@ -214,8 +193,6 @@ function App() {
               <tr>
                 <th>Name</th>
                 <th>ID</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Department</th>
                 <th>Section</th>
                 <th>Attendance</th>
@@ -235,8 +212,6 @@ function App() {
                   <tr key={index}>
                     <td>{item.name}</td>
                     <td>{item.id}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.email}</td>
                     <td>{item.department}</td>
                     <td>{item.section}</td>
                     <td>
