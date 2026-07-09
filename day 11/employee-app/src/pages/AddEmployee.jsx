@@ -1,109 +1,41 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import EmployeeForm from "../components/EmployeeForm";
+import Footer from "../components/Footer";
+import { addEmployee } from "../services/employeeService";
 
+function AddEmployee() {
+  const navigate = useNavigate();
 
-function AddEmployee(){
+  const handleAddEmployee = async (employee) => {
+    try {
+      await addEmployee(employee);
+      alert("Employee Added Successfully!");
+      navigate("/employees");
+    } catch (error) {
+      console.error("Error adding employee:", error);
+      alert("Failed to add employee!");
+    }
+  };
 
+  return (
+    <>
+      <Navbar />
 
-const navigate=useNavigate();
+      <div className="add-employee-page">
+        <h1>Add Employee</h1>
+        <p>Fill in the details below to add a new employee.</p>
 
+        <EmployeeForm
+          onSubmit={handleAddEmployee}
+          buttonText="Add Employee"
+        />
+      </div>
 
-const [employee,setEmployee]=useState({
-
-name:"",
-email:"",
-department:""
-
-});
-
-
-function submit(e){
-
-e.preventDefault();
-
-
-let old=
-JSON.parse(localStorage.getItem("employees")) || [];
-
-
-let newEmployee={
-
-id:Date.now(),
-
-...employee
-
-};
-
-
-localStorage.setItem(
-
-"employees",
-
-JSON.stringify(
-[...old,newEmployee]
-)
-
-);
-
-
-navigate("/employees");
-
-
+      <Footer />
+    </>
+  );
 }
-
-
-
-return(
-
-<form onSubmit={submit}>
-
-
-<h1>Add Employee</h1>
-
-
-<input
-placeholder="Name"
-onChange={
-e=>setEmployee({
-...employee,
-name:e.target.value
-})
-}
-/>
-
-
-<input
-placeholder="Email"
-onChange={
-e=>setEmployee({
-...employee,
-email:e.target.value
-})
-}
-/>
-
-
-<input
-placeholder="Department"
-onChange={
-e=>setEmployee({
-...employee,
-department:e.target.value
-})
-}
-/>
-
-
-<button>
-Add Employee
-</button>
-
-
-</form>
-
-)
-
-}
-
 
 export default AddEmployee;

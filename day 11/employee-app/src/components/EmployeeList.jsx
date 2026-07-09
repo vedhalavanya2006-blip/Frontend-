@@ -1,62 +1,58 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-function EmployeeList({ employees, onDelete }) {
+function EmployeeList({ employees, deleteEmployee }) {
   const navigate = useNavigate();
 
   return (
-    <div className="table-container">
+    <div className="employee-list">
 
-      <h2>Employee List</h2>
-
-      <table>
-
+      <table className="employee-table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
+            <th>Department</th>
             <th>Email</th>
-            <th>Actions</th>
+            <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-
           {employees.length === 0 ? (
             <tr>
-              <td colSpan="5" style={{ textAlign: "center" }}>
+              <td colSpan="6" style={{ textAlign: "center" }}>
                 No Employees Found
               </td>
             </tr>
           ) : (
-            employees.map((employee) => (
-              <tr key={employee.id}>
-                <td>{employee.id}</td>
-                <td>{employee.firstName}</td>
-                <td>{employee.lastName}</td>
-                <td>{employee.email}</td>
+            employees.map((emp) => (
+              <tr key={emp.id}>
+                <td>{emp.id}</td>
+                <td>{emp.name}</td>
+                <td>{emp.department}</td>
+                <td>{emp.email}</td>
 
                 <td>
                   <button
                     className="edit-btn"
-                    onClick={() => navigate(`/edit/${employee.id}`)}
+                    onClick={() => navigate(`/edit/${emp.id}`)}
                   >
-                    Edit
+                    <FaEdit /> Edit
                   </button>
 
                   <button
                     className="delete-btn"
-                    onClick={() => onDelete(employee.id)}
+                    onClick={() => deleteEmployee(emp.id)}
                   >
-                    Delete
+                    <FaTrash /> Delete
                   </button>
                 </td>
               </tr>
             ))
           )}
-
         </tbody>
-
       </table>
 
     </div>

@@ -1,28 +1,29 @@
 import axios from "axios";
 
-//API URL
+// Replace this URL with your MockAPI URL
+const API_URL = "https://6a4b368bf5eab0bb6b62573d.mockapi.io/employees";
 
-const API_URL="https://6a4b368bf5eab0bb6b62573d.mockapi.io/employees";
-
-//GET EMPLOYEES
- 
-export const getEmployees=()=>{
-
-    return axios.get(API_URL);
-};
-//POST 
-
-export const addEmployee=(employee)=>{
-    return axios.post(API_URL,employee);
+// Get all employees
+export const getEmployees = () => {
+  return axios.get(API_URL);
 };
 
-//PUT-->https://6a48e677a033dcb98d65067b.mockapi.io/employees/id
-export const updateEmployee=(id,employee)=>{
-    return axios.put(`${API_URL}/${id}`,employee);
+// Add employee
+export const addEmployee = (employee) => {
+  return axios.post(API_URL, employee);
 };
 
-//DELETE->https://6a48e677a033dcb98d65067b.mockapi.io/employees/id
+// Update employee
+export const updateEmployee = (id, employee) => {
+  return axios.put(`${API_URL}/${id}`, employee);
+};
 
-export const deleteEmployee=(id)=>{
-    return axios.delete(`${API_URL}/${id}`);
+// Delete employee
+export const deleteEmployee = (id) => {
+  return axios.delete(`${API_URL}/${id}`);
+};
+
+// Get employee by ID
+export const getEmployeeById = (id) => {
+  return axios.get(`${API_URL}/${id}`);
 };

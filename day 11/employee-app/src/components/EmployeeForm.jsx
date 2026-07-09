@@ -1,63 +1,52 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EmployeeForm({ addEmployee, updateEmployee, editEmployee }) {
-  const [employee, setEmployee] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
+function EmployeeForm({ employee, onSubmit, buttonText }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    department: "",
     email: "",
   });
 
   useEffect(() => {
-    if (editEmployee) {
-      setEmployee(editEmployee);
+    if (employee) {
+      setFormData({
+        name: employee.name || "",
+        department: employee.department || "",
+        email: employee.email || "",
+      });
     }
-  }, [editEmployee]);
+  }, [employee]);
 
   const handleChange = (e) => {
-    setEmployee({
-      ...employee,
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (editEmployee) {
-      updateEmployee(employee);
-    } else {
-      addEmployee(employee);
-    }
-
-    setEmployee({
-      id: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-    });
+    onSubmit(formData);
   };
 
   return (
-    <div className="form-container">
-      <h2>{editEmployee ? "Update Employee" : "Add Employee"}</h2>
-
-      <form onSubmit={handleSubmit}>
+    <div className="employee-form-container">
+      <form className="employee-form" onSubmit={handleSubmit}>
 
         <input
           type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={employee.firstName}
+          name="name"
+          placeholder="Employee Name"
+          value={formData.name}
           onChange={handleChange}
           required
         />
 
         <input
           type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={employee.lastName}
+          name="department"
+          placeholder="Department"
+          value={formData.department}
           onChange={handleChange}
           required
         />
@@ -65,14 +54,14 @@ function EmployeeForm({ addEmployee, updateEmployee, editEmployee }) {
         <input
           type="email"
           name="email"
-          placeholder="Email"
-          value={employee.email}
+          placeholder="Email Address"
+          value={formData.email}
           onChange={handleChange}
           required
         />
 
         <button type="submit">
-          {editEmployee ? "Update Employee" : "Add Employee"}
+          {buttonText}
         </button>
 
       </form>

@@ -1,113 +1,74 @@
-import {useParams,useNavigate} from "react-router-dom";
-import {useState} from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import EmployeeForm from "../components/EmployeeForm";
+import Footer from "../components/Footer";
+import {
+  getEmployees,
+  updateEmployee,
+} from "../services/employeeService";
 
+function EditEmployee() {
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-function EditEmployee(){
+  const [employee, setEmployee] = useState(null);
 
+  // Fetch employee by ID
+  useEffect(() => {
+    const fetchEmployee = async () => {
+      try {
+        const response = await getEmployees();
 
-let {id}=useParams();
+        const emp = response.data.find(
+          (item) => item.id === id
+        );
 
-let navigate=useNavigate();
+        if (emp) {
+          setEmployee(emp);
+        } else {
+          alert("Employee Not Found");
+          navigate("/employees");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
+    fetchEmployee();
+  }, [id, navigate]);
 
-let data=
-JSON.parse(localStorage.getItem("employees")) || [];
+  // Update Employee
+  const handleUpdate = async (updatedEmployee) => {
+    try {
+      await updateEmployee(id, updatedEmployee);
+      alert("Employee Updated Successfully!");
+      navigate("/employees");
+    } catch (error) {
+      console.error(error);
+      alert("Update Failed");
+    }
+  };
 
+  return (
+    <>
+      <Navbar />
 
-let emp=data.find(
-(e)=>e.id==id
-);
+      <div className="edit-employee-page">
+        <h1>Edit Employee</h1>
 
+        {employee && (
+          <EmployeeForm
+            employee={employee}
+            onSubmit={handleUpdate}
+            buttonText="Update Employee"
+          />
+        )}
+      </div>
 
-const [employee,setEmployee]=useState(emp);
-
-
-
-function update(e){
-
-e.preventDefault();
-
-
-let updated=data.map(
-(e)=>
-e.id==id ? employee:e
-);
-
-
-localStorage.setItem(
-"employees",
-JSON.stringify(updated)
-);
-
-
-navigate("/employees");
-
+      <Footer />
+    </>
+  );
 }
-
-
-
-return(
-
-<form onSubmit={update}>
-
-
-<h1>Edit Employee</h1>
-
-
-<input
-
-value={employee.name}
-
-onChange={
-e=>setEmployee({
-...employee,
-name:e.target.value
-})
-}
-
-/>
-
-
-<input
-
-value={employee.email}
-
-onChange={
-e=>setEmployee({
-...employee,
-email:e.target.value
-})
-}
-
-/>
-
-
-<input
-
-value={employee.department}
-
-onChange={
-e=>setEmployee({
-...employee,
-department:e.target.value
-})
-}
-
-/>
-
-
-<button>
-Update
-</button>
-
-
-</form>
-
-
-)
-
-
-}
-
 
 export default EditEmployee;

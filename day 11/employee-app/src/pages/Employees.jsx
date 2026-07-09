@@ -1,69 +1,58 @@
-import { useEffect, useState } from "react";
-import { getEmployees, deleteEmployee } from "../services/employeeService";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import EmployeeList from "../components/EmployeeList";
+import Footer from "../components/Footer";
+import {
+  getEmployees,
+  deleteEmployee,
+} from "../services/employeeService";
 
 function Employees() {
   const [employees, setEmployees] = useState([]);
 
-  useEffect(() => {
-    loadEmployees();
-  }, []);
-
-  const loadEmployees = async () => {
+  // Load Employees
+  const fetchEmployees = async () => {
     try {
       const response = await getEmployees();
       setEmployees(response.data);
     } catch (error) {
-      console.log(error);
+      console.log("Error fetching employees:", error);
     }
   };
 
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
+  // Delete Employee
   const handleDelete = async (id) => {
-    await deleteEmployee(id);
-    loadEmployees();
+    if (window.confirm("Are you sure you want to delete this employee?")) {
+      try {
+        await deleteEmployee(id);
+        fetchEmployees();
+      } catch (error) {
+        console.log("Delete Error:", error);
+      }
+    }
   };
 
   return (
-    <div className="container">
-      <h1>Employee List</h1>
+    <>
+      <Navbar />
 
-      <Link to="/add">
-        <button>Add Employee</button>
-      </Link>
+      <div className="employees-page">
+        <h1>Employee Management</h1>
+        <p>View, Edit and Delete Employee Details</p>
 
-      <table border="1" cellPadding="10">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Department</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+        <EmployeeList
+          employees={employees}
+          deleteEmployee={handleDelete}
+        />
+      </div>
 
-        <tbody>
-          {employees.map((emp) => (
-            <tr key={emp.id}>
-              <td>{emp.id}</td>
-              <td>{emp.name}</td>
-              <td>{emp.email}</td>
-              <td>{emp.department}</td>
-              <td>
-                <Link to={`/edit/${emp.id}`}>
-                  <button>Edit</button>
-                </Link>
-
-                <button onClick={() => handleDelete(emp.id)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+      <Footer />
+    </>
   );
 }
 
-export default Employees;    
+export default Employees;
