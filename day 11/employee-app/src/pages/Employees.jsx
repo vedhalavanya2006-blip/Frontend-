@@ -10,6 +10,9 @@ import {
 function Employees() {
   const [employees, setEmployees] = useState([]);
 
+  // Department Filter
+  const [departmentFilter, setDepartmentFilter] = useState("");
+
   // Load Employees
   const fetchEmployees = async () => {
     try {
@@ -36,6 +39,14 @@ function Employees() {
     }
   };
 
+  // Filter Employees
+  const filteredEmployees =
+    departmentFilter === ""
+      ? employees
+      : employees.filter(
+          (emp) => emp.department === departmentFilter
+        );
+
   return (
     <>
       <Navbar />
@@ -44,8 +55,33 @@ function Employees() {
         <h1>Employee Management</h1>
         <p>View, Edit and Delete Employee Details</p>
 
+        {/* Department Filter */}
+        <div style={{ margin: "20px 0" }}>
+          <label>
+            <b>Filter by Department : </b>
+          </label>
+
+          <select
+            value={departmentFilter}
+            onChange={(e) => setDepartmentFilter(e.target.value)}
+            style={{
+              padding: "8px",
+              marginLeft: "10px",
+              borderRadius: "5px",
+            }}
+          >
+            <option value="">All Departments</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Testing">Testing</option>
+          </select>
+        </div>
+
         <EmployeeList
-          employees={employees}
+          employees={filteredEmployees}
           deleteEmployee={handleDelete}
         />
       </div>

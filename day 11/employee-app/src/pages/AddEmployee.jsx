@@ -25,6 +25,7 @@ function AddEmployee() {
 
       <div className="add-employee-page">
         <h1>Add Employee</h1>
+
         <p>Fill in the details below to add a new employee.</p>
 
         <EmployeeForm
