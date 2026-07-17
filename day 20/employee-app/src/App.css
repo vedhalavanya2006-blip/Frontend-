@@ -1,0 +1,506 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:linear-gradient(90deg,#4f46e5,#2563eb);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 60px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.logo h2{
+    color:white;
+    font-size:30px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+}
+
+.nav-links li{
+    margin-left:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ffd54f;
+}
+
+/* ================= HOME ================= */
+
+.home-container{
+    text-align:center;
+    padding:50px;
+}
+
+.home-container h1{
+    color:#f40b55;
+    font-size:40px;
+}
+
+.home-container p{
+    color:#c95b12;
+    margin-top:10px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:250px;
+    padding:30px;
+    border-radius:18px;
+    color:white;
+    transition:.4s;
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card:nth-child(1){
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+}
+
+.card:nth-child(2){
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+}
+
+.card h2{
+    font-size:42px;
+}
+
+.card p{
+    margin-top:10px;
+}
+
+/* ================= BUTTONS ================= */
+
+.home-btn{
+    margin:12px;
+    padding:13px 24px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.home-btn:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+.edit-btn{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-right:8px;
+}
+
+.edit-btn:hover{
+    background:#16a34a;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
+
+/* ================= FORM ================= */
+
+.employee-form-container{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.employee-form{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+.employee-form input{
+    width:100%;
+    padding:13px;
+    margin-bottom:18px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+}
+
+.employee-form input:focus{
+    border:2px solid #2563eb;
+}
+
+.employee-form button{
+    width:100%;
+    padding:13px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.employee-form button:hover{
+    background:#1d4ed8;
+}
+
+/* ================= TABLE ================= */
+
+.employee-list{
+    width:95%;
+    margin:35px auto;
+}
+
+.employee-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+.employee-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+.employee-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.employee-table tr:hover{
+    background:#f1f5f9;
+}
+
+/* ================= PAGE ================= */
+
+.add-employee-page,
+.edit-employee-page,
+.employees-page{
+    padding:35px;
+    text-align:center;
+}
+
+.add-employee-page h1,
+.edit-employee-page h1,
+.employees-page h1{
+    color:#a73a1e;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    margin-top:40px;
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:18px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+padding:20px;
+}
+
+.nav-links{
+margin-top:15px;
+}
+
+.dashboard{
+flex-direction:column;
+align-items:center;
+}
+
+.employee-form{
+width:95%;
+}
+
+.employee-table{
+display:block;
+overflow-x:auto;
+}
+
+}
+/* ================= NEW FORM FIELDS ================= */
+
+.employee-form select,
+.employee-form textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    background: white;
+    transition: 0.3s;
+}
+
+.employee-form select:focus,
+.employee-form textarea:focus {
+    border: 2px solid #2563eb;
+}
+
+.employee-form textarea {
+    resize: none;
+}
+
+/* Readonly Employee ID */
+
+.employee-form input[readonly] {
+    background: #f3f4f6;
+    color: #555;
+    font-weight: bold;
+}
+
+/* ================= SEARCH BAR ================= */
+
+.search-box {
+    width: 40%;
+    margin: 20px auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 30px;
+    border: 2px solid #2563eb;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 10px rgba(37,99,235,.3);
+}
+
+/* ================= PROFILE IMAGE ================= */
+
+.employee-table img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2563eb;
+}
+
+/* ================= STATUS BADGE ================= */
+
+.status-active {
+    background: #22c55e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-inactive {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-leave {
+    background: #f59e0b;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    min-width: 220px;
+}
+
+.card h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: white;
+    font-weight: 500;
+}
+
+/* Additional card colors */
+
+.card:nth-child(3) {
+    background: linear-gradient(135deg,#10b981,#22c55e);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(135deg,#ef4444,#f97316);
+}
+
+.card:nth-child(5) {
+    background: linear-gradient(135deg,#ec4899,#8b5cf6);
+}
+
+.card:nth-child(6) {
+    background: linear-gradient(135deg,#f59e0b,#facc15);
+}
+
+/* ================= RECENT EMPLOYEE ================= */
+
+.recent-section {
+    width: 95%;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+
+.recent-section h2 {
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+.recent-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-section th {
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+}
+
+.recent-section td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ================= TABLE ================= */
+
+.employee-table td,
+.employee-table th {
+    white-space: nowrap;
+}
+
+.employee-table::-webkit-scrollbar {
+    height: 8px;
+}
+
+.employee-table::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 20px;
+}
+
+/* ================= BUTTON EFFECT ================= */
+
+.edit-btn,
+.delete-btn,
+.home-btn {
+    transition: all .3s ease;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+/* ================= PAGE TITLE ================= */
+
+.home-container h1,
+.add-employee-page h1,
+.edit-employee-page h1,
+.employees-page h1 {
+    letter-spacing: 1px;
+}
+
+/* ================= ANIMATION ================= */
+
+.card,
+.employee-form,
+.employee-table {
+    animation: fadeUp .5s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
